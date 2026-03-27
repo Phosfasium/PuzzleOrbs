@@ -8,22 +8,29 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
 
     [SerializeField]
     private string objectInteractionMessage;
-
     public string InteractMessage => objectInteractionMessage;
+
+
     public void Start()
     {
         puzzleCam.enabled = false;
 
     }
 
-    public void Interact(Camera PlayerCamera)
+    public void Interact(Camera PlayerCamera, FirstPersonController FirstPersonController)
     {
-        switchCam(PlayerCamera);
+        switchCam(PlayerCamera, FirstPersonController);
     }
 
-    void switchCam(Camera PlayerCamera)
+    void switchCam(Camera PlayerCamera, FirstPersonController FirstPersonController)
     {
-        PlayerCamera.enabled = false;
-        puzzleCam.enabled = true;
+        //PlayerCamera.enabled = false;
+        //puzzleCam.enabled = true;
+        //FirstPersonController.enabled = false;
+
+        PlayerCamera.enabled = !PlayerCamera.enabled;
+        puzzleCam.enabled = !puzzleCam.enabled;
+        FirstPersonController.enabled = !FirstPersonController.enabled;
+
     }
 }

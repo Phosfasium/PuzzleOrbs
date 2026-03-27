@@ -25,6 +25,8 @@ public class FirstPersonController : MonoBehaviour
     private float verticalRotation;
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1);
 
+    public bool PlayerControllsEnabled = true;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -33,8 +35,12 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
-        HandleMovement();
-        HandleRotation();
+        if (PlayerControllsEnabled)
+        {
+            HandleMovement();
+            HandleRotation();
+        }
+        
     }
 
     private Vector3 CalculateWorldDirection()

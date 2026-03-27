@@ -15,14 +15,20 @@ public class InteractionController : MonoBehaviour
     float interactionDistance = 5f;
     [SerializeField] 
     private PlayerInputHandler playerInputHandler;
+    [SerializeField]
+    private FirstPersonController FirstPersonController;
 
     IInteractable currentTargetedInteractable;
 
     public void Update()
     {
-        UpdateCurrentInteractable();
-        UpdateInteractionText();
-        CheckForInteractionInput();
+        if (FirstPersonController.PlayerControllsEnabled == true)
+        {
+            UpdateCurrentInteractable();
+            UpdateInteractionText();
+            CheckForInteractionInput();
+        }
+
     }
     void UpdateCurrentInteractable()
     {
@@ -46,7 +52,8 @@ public class InteractionController : MonoBehaviour
     {
         if (playerInputHandler.InteractTriggered && currentTargetedInteractable != null) 
         {
-            currentTargetedInteractable.Interact(playerCamera);
+            currentTargetedInteractable.Interact(playerCamera, FirstPersonController);
+            interactionText.text = string.Empty;
         }
     }
 }

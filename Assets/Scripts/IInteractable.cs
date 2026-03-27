@@ -5,6 +5,6 @@ namespace DefaultNamespace
     public interface IInteractable
     {
         public string InteractMessage { get; }
-        public void Interact(Camera PlayerCamera);
+        public void Interact(Camera PlayerCamera, FirstPersonController firstPersonController);
     }
 }
