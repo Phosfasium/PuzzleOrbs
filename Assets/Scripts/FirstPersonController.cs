@@ -53,6 +53,7 @@ public class FirstPersonController : MonoBehaviour
     private void HandleJumping()
     {
         if (characterController.isGrounded)
+            //use the character controller to see if the player is grounded, if yes, move on.
         {
             currentMovement.y = -0.5f;
 
