@@ -24,7 +24,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction jumpAction;
     private InputAction sprintAction;
     private InputAction interactAction;
-    private InputAction pauseAction;
+    public InputAction pauseAction;
 
     public Vector2 MovementInput { get; private set; }
     public Vector2 RotationInput { get; private set; }
@@ -67,9 +67,6 @@ public class PlayerInputHandler : MonoBehaviour
 
         interactAction.performed += inputInfo => InteractTriggered = true;
         interactAction.canceled += inputInfo => InteractTriggered = false;
-
-        pauseAction.performed += inputInfo => PauseTriggered = true;
-        pauseAction.canceled += inputInfo => PauseTriggered = false;
     }
 
     private void OnEnable()
