@@ -21,6 +21,7 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
     {
         switchCam(PlayerCamera, FirstPersonController);
         FirstPersonController.PlayerControllsEnabled = false;
+        FirstPersonController.PlayerControllsPause = false;
     }
 
     public void switchCam(Camera PlayerCamera, FirstPersonController FirstPersonController)
@@ -34,9 +35,5 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
         puzzleCam.enabled = !puzzleCam.enabled;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-
-
-
-
     }
 }

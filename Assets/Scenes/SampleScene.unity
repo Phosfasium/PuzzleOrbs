@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gamepad Controls
+  m_text: Reset Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -338,7 +338,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 98487426}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1895018426}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OnResumePress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &98487426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +550,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 270515192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1895018426}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OnQuitPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &270515192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,7 +1071,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 364273391}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1895018426}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OnSettingsPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &364273391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,7 +1267,7 @@ GameObject:
   - component: {fileID: 722697384}
   - component: {fileID: 722697383}
   m_Layer: 5
-  m_Name: GamepadControlsButton
+  m_Name: ResetGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1300,7 +1336,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 722697384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1895018426}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OnResetLevelPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &722697384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1755,7 +1803,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 965436871}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1895018426}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OnBackPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &965436871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,7 +2085,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Keyboard Controls
+  m_text: Useless Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2224,7 +2284,7 @@ GameObject:
   - component: {fileID: 1593790905}
   - component: {fileID: 1593790904}
   m_Layer: 5
-  m_Name: KeyboardControlsButton
+  m_Name: WhateverSettingThisWillBe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2901,8 +2961,8 @@ MonoBehaviour:
   _mainMenuCanvasGO: {fileID: 1910098510}
   _settingsMenuCanvasGO: {fileID: 997374325}
   pauseGame: {fileID: 1616612610}
-  Player: {fileID: 0}
-  firstPersonController: {fileID: 0}
+  _mainMenuFirst: {fileID: 98487423}
+  _SettingsMenuFirst: {fileID: 1593790902}
 --- !u!1 &1910098510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,6 +3570,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 4167118629521836189, guid: 4004f2467471d3641a3412f44ce019d7, type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 1895018426}
     - target: {fileID: 4167118629521836189, guid: 4004f2467471d3641a3412f44ce019d7, type: 3}
       propertyPath: playerInputHandler
       value: 

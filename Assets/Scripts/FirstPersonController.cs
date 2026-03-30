@@ -25,7 +25,11 @@ public class FirstPersonController : MonoBehaviour
     private float verticalRotation;
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1);
 
+    //Enables first person controlls if set to true
     public bool PlayerControllsEnabled = true;
+
+    //Check if player is active when pausing
+    public bool PlayerControllsPause = true;
 
     private void Start()
     {
@@ -40,6 +44,7 @@ public class FirstPersonController : MonoBehaviour
             HandleMovement();
             HandleRotation();
         }
+
         
     }
 
