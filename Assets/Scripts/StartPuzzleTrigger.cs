@@ -7,6 +7,9 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
     private Camera puzzleCam;
 
     [SerializeField]
+    private GameObject _PuzzleCanvas;
+
+    [SerializeField]
     private string objectInteractionMessage;
     public string InteractMessage => objectInteractionMessage;
 
@@ -35,5 +38,6 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
         puzzleCam.enabled = !puzzleCam.enabled;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        _PuzzleCanvas.SetActive(true);
     }
 }
