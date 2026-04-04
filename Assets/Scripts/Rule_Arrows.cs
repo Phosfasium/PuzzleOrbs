@@ -48,9 +48,6 @@ public class Rule_Arrows : MonoBehaviour
         Debug.DrawRay(SouthOrigin.position, Vector3.back * SouthDetectionLength, Color.blue);
         Debug.DrawRay(WestOrigin.position, Vector3.left * WestDetectionLength, Color.yellow);
         
-        
-        
-        
 }
 
     public void PressedCheck()

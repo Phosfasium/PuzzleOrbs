@@ -33,7 +33,7 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
         //puzzleCam.enabled = true;
        
 
-
+        
         PlayerCamera.enabled = !PlayerCamera.enabled;
         puzzleCam.enabled = !puzzleCam.enabled;
         Cursor.lockState = CursorLockMode.Confined;
