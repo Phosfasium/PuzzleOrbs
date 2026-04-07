@@ -6,6 +6,8 @@ public class Rule_Arrows : MonoBehaviour
     public bool RuleCorrect = false;
     [SerializeField]
     private LayerMask puzzleOrb;
+    [SerializeField]
+    private RuleCheckerGeneral RuleCheckerGeneral;
 
     [Header ("Direction objects")]
     [SerializeField]
@@ -43,10 +45,10 @@ public class Rule_Arrows : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(NorthOrigin.position, Vector3.forward * NorthDetectionLength, Color.red);
-        Debug.DrawRay(EastOrigin.position, Vector3.right * EastDetectionLength, Color.green);
-        Debug.DrawRay(SouthOrigin.position, Vector3.back * SouthDetectionLength, Color.blue);
-        Debug.DrawRay(WestOrigin.position, Vector3.left * WestDetectionLength, Color.yellow);
+        //Debug.DrawRay(NorthOrigin.position, Vector3.forward * NorthDetectionLength, Color.red);
+        //Debug.DrawRay(EastOrigin.position, Vector3.right * EastDetectionLength, Color.green);
+        //Debug.DrawRay(SouthOrigin.position, Vector3.back * SouthDetectionLength, Color.blue);
+        //Debug.DrawRay(WestOrigin.position, Vector3.left * WestDetectionLength, Color.yellow);
         
 }
 
@@ -78,10 +80,12 @@ public class Rule_Arrows : MonoBehaviour
         if (NorthOrbs == NorthHitCount & EastOrbs == EastHitCount & SouthOrbs == SouthHitCount & WestOrbs == WestHitCount)
         {
             RuleCorrect = true;
+            RuleCheckerGeneral.puzzleIsCorrect = true;
         }
         else
         {
             RuleCorrect= false;
+            RuleCheckerGeneral.puzzleIsCorrect = false;
         }
 
         Debug.Log("Norht = " + NorthHitCount);

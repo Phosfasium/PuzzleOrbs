@@ -3,25 +3,35 @@ using UnityEngine;
 
 public class PuzzleChecker : MonoBehaviour
 {
-    [SerializeField]
-    private Dictionary<GameObject, bool> ruleCorrectDict = new Dictionary<GameObject, bool>()
+    public List<GameObject> RulesToCheck;
+    private bool AllCorrect;
+    public void CheckTheRules()
     {
-        {new GameObject(), false},
-        {new GameObject(), false},
-        {new GameObject(), false},
-        {new GameObject(), false},
-        {new GameObject(), false}
-    };
+        AllCorrect = true;
+        foreach (GameObject obj in RulesToCheck)
+        {
+            RuleCheckerGeneral script = obj.GetComponent<RuleCheckerGeneral>();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-      
-    }
+            if (script == null)
+            {
+                Debug.Log("you're missing a script dude");
+                continue;
+            }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (script.puzzleIsCorrect == false)
+            {
+                AllCorrect = false;
+                Debug.Log("this rule is incorrect");
+            }
+        }
+
+        if (AllCorrect)
+        {
+            Debug.Log("you did it, woohoo");
+        }
+        else
+        {
+            Debug.Log("Haha, you suck. byeeee");
+        }
     }
 }
