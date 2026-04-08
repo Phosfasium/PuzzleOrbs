@@ -25,6 +25,7 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
         switchCam(PlayerCamera, FirstPersonController);
         FirstPersonController.PlayerControllsEnabled = false;
         FirstPersonController.PlayerControllsPause = false;
+        GetComponent<BoxCollider>().enabled = false;
     }
 
     public void switchCam(Camera PlayerCamera, FirstPersonController FirstPersonController)
