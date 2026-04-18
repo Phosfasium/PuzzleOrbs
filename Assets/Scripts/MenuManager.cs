@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _settingsMenuCanvasGO;
 
     [Header("Other gameobjects")]
-    [SerializeField] private PauseGame pauseGame;
+    [SerializeField] private PlayerInputHandler playerInputHandler;
 
     [Header("First Selected Options")]
     [SerializeField] private GameObject _mainMenuFirst;
@@ -38,7 +38,7 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pauseGame.MenuOpenCloseInput)
+        if (playerInputHandler.MenuFireOnce)
         {
             if (!isPaused)
             {

@@ -26,6 +26,8 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
         FirstPersonController.PlayerControllsEnabled = false;
         FirstPersonController.PlayerControllsPause = false;
         GetComponent<BoxCollider>().enabled = false;
+        FirstPersonController.GrabberEnabled = true;
+        
     }
 
     public void switchCam(Camera PlayerCamera, FirstPersonController FirstPersonController)
@@ -40,5 +42,19 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         _PuzzleCanvas.SetActive(true);
+    }
+
+    public void ExitPuzzle(Camera PlayerCamera, FirstPersonController FirstPersonController)
+    {
+        FirstPersonController.PlayerControllsEnabled = true;
+        FirstPersonController.PlayerControllsPause = true;
+        GetComponent<BoxCollider>().enabled = true;
+        FirstPersonController.GrabberEnabled = false;
+        PlayerCamera.enabled = !PlayerCamera.enabled;
+        puzzleCam.enabled = !puzzleCam.enabled;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        _PuzzleCanvas.SetActive(false);
+
     }
 }

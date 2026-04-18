@@ -31,6 +31,8 @@ public class FirstPersonController : MonoBehaviour
     //Check if player is active when pausing
     public bool PlayerControllsPause = true;
 
+    public bool GrabberEnabled = false;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,7 +47,15 @@ public class FirstPersonController : MonoBehaviour
             HandleRotation();
         }
 
-        
+        if (GrabberEnabled)
+        {
+            this.GetComponent<Grabber>().enabled = true;
+        }
+        else
+        {
+            this.GetComponent <Grabber>().enabled = false;
+        }
+
     }
 
     private Vector3 CalculateWorldDirection()

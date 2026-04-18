@@ -25,6 +25,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "TopDownMouse",
+                    "type": "Value",
+                    "id": "94fc41a6-696b-45e4-a045-4869dc2caaf5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "3c1c8116-5320-4baf-9cab-5290f61cdf8e",
@@ -55,6 +64,15 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "283a32a8-ffe3-4bd8-9fe4-a965f9b9df7d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "262a22db-024c-4576-9596-d8a26bd92047",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -169,6 +187,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65e5b7bb-cc82-4103-ab25-067ffeb70a20",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "TopDownMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "238f938c-941e-4453-ac70-4d434addd14b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

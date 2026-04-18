@@ -1,16 +1,16 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody))]
-public class MouseMovement : MonoBehaviour
+
+[RequireComponent(typeof(Rigidbody))]
+public class GrabSphere : MonoBehaviour
 {
+    
     Rigidbody rb;
     Vector3 mousePosition;
 
     private Vector3 GetMousePos()
     {
         return Camera.main.WorldToScreenPoint(transform.position);
-        
     }
     private void Awake()
     {
@@ -23,13 +23,5 @@ public class MouseMovement : MonoBehaviour
         transform.position += Vector3.up;
         rb.useGravity = false;
         Debug.Log("apple");
-    }
-
-    private void OnMouseDrag()
-    {
-        if (rb.useGravity == false)
-        {
-
-        }
     }
 }

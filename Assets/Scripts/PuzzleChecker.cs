@@ -5,6 +5,8 @@ public class PuzzleChecker : MonoBehaviour
 {
     public List<GameObject> RulesToCheck;
     private bool AllCorrect;
+
+    [SerializeField] private Material material;
     public void CheckTheRules()
     {
         AllCorrect = true;
@@ -28,10 +30,12 @@ public class PuzzleChecker : MonoBehaviour
         if (AllCorrect)
         {
             Debug.Log("you did it, woohoo");
+            material.color = Color.green;
         }
         else
         {
             Debug.Log("Haha, you suck. byeeee");
+            material.color = Color.red;
         }
     }
 }
