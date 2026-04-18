@@ -56,4 +56,9 @@ public class InteractionController : MonoBehaviour
             interactionText.text = string.Empty;
         }
     }
+
+    public void exitPuzzle()
+    {
+        currentTargetedInteractable.ExitPuzzle(playerCamera, FirstPersonController);
+    }
 }

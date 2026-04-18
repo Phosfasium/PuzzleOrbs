@@ -6,5 +6,6 @@ namespace DefaultNamespace
     {
         public string InteractMessage { get; }
         public void Interact(Camera PlayerCamera, FirstPersonController firstPersonController);
+        public void ExitPuzzle(Camera PlayerCamera, FirstPersonController firstPersonController);
     }
 }

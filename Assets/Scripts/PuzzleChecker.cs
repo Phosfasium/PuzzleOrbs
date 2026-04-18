@@ -7,6 +7,7 @@ public class PuzzleChecker : MonoBehaviour
     private bool AllCorrect;
 
     [SerializeField] private Material material;
+    
     public void CheckTheRules()
     {
         AllCorrect = true;
