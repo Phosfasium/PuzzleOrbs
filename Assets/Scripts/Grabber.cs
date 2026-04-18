@@ -37,10 +37,9 @@ public class Grabber : MonoBehaviour
                 Vector3 worldPosition = camera.ScreenToWorldPoint(position);
                 selectedObject.transform.position = new Vector3(worldPosition.x, BallHeight + 1f, worldPosition.z);
                 selectedObject.GetComponent<Collider>().isTrigger = false;
+                selectedObject.GetComponent<Rigidbody>().isKinematic = false;
                 selectedObject = null;
                 Cursor.visible = true;
-                
-
             }
         }
 
@@ -53,6 +52,7 @@ public class Grabber : MonoBehaviour
             selectedObject.transform.position = new Vector3(worldPosition.x, BallHeight + 1f, worldPosition.z);
             //Debug.Log(selectedObject.transform.position);
             selectedObject.GetComponent<Collider>().isTrigger = true;
+            selectedObject.GetComponent<Rigidbody>().isKinematic = true;
         }
    
     }
