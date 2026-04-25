@@ -35,8 +35,14 @@ public class FirstPersonController : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        Time.timeScale = 0f;
+
+            PlayerControllsEnabled = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        
     }
 
     private void Update()
