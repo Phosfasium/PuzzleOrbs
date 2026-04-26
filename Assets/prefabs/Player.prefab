@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2992165045453694837}
   - component: {fileID: 9130426731057905459}
   m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
+  m_Name: PlayerCamera
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,9 +238,11 @@ GameObject:
   - component: {fileID: 8514250216098001023}
   - component: {fileID: 1883027885254780799}
   - component: {fileID: 4167118629521836189}
+  - component: {fileID: 3170499184789693071}
+  - component: {fileID: 8133609902362769050}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7634af496a6e54fb80f9d91439d695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonController
-  walkSpeed: 3
+  walkSpeed: 4
   sprintMultiplier: 2
   jumpForce: 5
   gravityMultiplier: 1
@@ -308,3 +310,37 @@ MonoBehaviour:
   characterController: {fileID: 1883027885254780799}
   mainCamera: {fileID: 945774041245095671}
   playerInputHandler: {fileID: 0}
+  PlayerControllsEnabled: 1
+  PlayerControllsPause: 1
+  GrabberEnabled: 0
+--- !u!114 &3170499184789693071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392595944351400643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5df74e3f658af940a16d334ca92185f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionController
+  playerCamera: {fileID: 945774041245095671}
+  interactionText: {fileID: 0}
+  interactionDistance: 5
+  playerInputHandler: {fileID: 0}
+  FirstPersonController: {fileID: 4167118629521836189}
+--- !u!114 &8133609902362769050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392595944351400643}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd9830e393f4454397867e83f3d5e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Grabber
+  playerInputHandler: {fileID: 0}
+  BallHeight: 0

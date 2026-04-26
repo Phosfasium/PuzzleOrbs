@@ -17,7 +17,7 @@ public class PuzzleChecker : MonoBehaviour
         foreach (GameObject obj in RulesToCheck)
         {
             RuleCheckerGeneral script = obj.GetComponent<RuleCheckerGeneral>();
-
+            script.CallFunction();
             if (script == null)
             {
                 Debug.Log("you're missing a script dude");
