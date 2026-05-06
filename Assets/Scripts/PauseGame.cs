@@ -7,9 +7,9 @@ public class PauseGame : MonoBehaviour
     [SerializeField] private PlayerInputHandler playerInputHandler;
 
 
-    // Update is called once per frame
     void Update()
     {
+        //check if the menu button was pressed for one frame. this code has become obsolete, has been added to 'MenuManager' and 'PlayerInputHandler'
         MenuOpenCloseInput = playerInputHandler.pauseAction.WasPressedThisFrame();
     }
 }

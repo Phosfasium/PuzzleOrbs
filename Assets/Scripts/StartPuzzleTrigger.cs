@@ -19,7 +19,7 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
         puzzleCam.enabled = false;
 
     }
-
+    #region start the puzzle
     public void Interact(Camera PlayerCamera, FirstPersonController FirstPersonController)
     {
         switchCam(PlayerCamera, FirstPersonController);
@@ -27,31 +27,27 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
         FirstPersonController.PlayerControllsPause = false;
         GetComponent<BoxCollider>().enabled = false;
         FirstPersonController.GrabberEnabled = true;
-        
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        _PuzzleCanvas.SetActive(true);
+
     }
 
     public void switchCam(Camera PlayerCamera, FirstPersonController FirstPersonController)
     {
         //PlayerCamera.enabled = false;
         //puzzleCam.enabled = true;
-       
-
-        
         PlayerCamera.enabled = !PlayerCamera.enabled;
         puzzleCam.enabled = !puzzleCam.enabled;
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
-        _PuzzleCanvas.SetActive(true);
     }
-
+    #endregion
     public void ExitPuzzle(Camera PlayerCamera, FirstPersonController FirstPersonController)
     {
         FirstPersonController.PlayerControllsEnabled = true;
         FirstPersonController.PlayerControllsPause = true;
         GetComponent<BoxCollider>().enabled = true;
         FirstPersonController.GrabberEnabled = false;
-        PlayerCamera.enabled = !PlayerCamera.enabled;
-        puzzleCam.enabled = !puzzleCam.enabled;
+        switchCam(PlayerCamera, FirstPersonController);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _PuzzleCanvas.SetActive(false);

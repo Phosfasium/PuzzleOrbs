@@ -17,8 +17,11 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float upDownLookrange = 80f;
 
     [Header("References")]
+    //player character controller
     [SerializeField] private CharacterController characterController;
+    //this is the first person player camera.
     [SerializeField] private Camera mainCamera;
+    //has all the inputs in the current version of the game. reference this one if new controlls need to be added
     [SerializeField] private PlayerInputHandler playerInputHandler;
 
     private Vector3 currentMovement;
@@ -37,22 +40,25 @@ public class FirstPersonController : MonoBehaviour
     {
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
-        Time.timeScale = 0f;
 
-            PlayerControllsEnabled = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+        //game is paused until button in 'introDone' is pressed. remove this and enable the code above if you instantly want to play
+        Time.timeScale = 0f;
+        PlayerControllsEnabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         
     }
 
     private void Update()
     {
+        //overall check if the player can move, disables using pause buttons.
         if (PlayerControllsEnabled)
         {
             HandleMovement();
             HandleRotation();
         }
 
+        //Enables the top down grab script so it doesn't intervere with normal gameplay, can be edited to also include first person grabbing
         if (GrabberEnabled)
         {
             this.GetComponent<Grabber>().enabled = true;
@@ -66,6 +72,7 @@ public class FirstPersonController : MonoBehaviour
 
     private Vector3 CalculateWorldDirection()
     {
+        //prepare world direction for movement controll
         Vector3 inputDirection = new Vector3(playerInputHandler.MovementInput.x, 0f, playerInputHandler.MovementInput.y);
         Vector3 worldDirection = transform.TransformDirection(inputDirection);
         return worldDirection.normalized;
@@ -91,27 +98,32 @@ public class FirstPersonController : MonoBehaviour
 
     private void HandleMovement()
     {
+        //set the movement direction depending on the button. 
         Vector3 worldDirection = CalculateWorldDirection();
         currentMovement.x = worldDirection.x * CurrentSpeed;
         currentMovement.z = worldDirection.z * CurrentSpeed;
 
         HandleJumping();
+        //WASD input
         characterController.Move(currentMovement * Time.deltaTime);
     }
 
     private void ApplyHorizontalRotation(float rotationAmount)
     {
+        //horizontal rotation. rotation amount is given in 'HandleRotation'
         transform.Rotate(0, rotationAmount, 0);
     }
 
     private void ApplyVerticalRotation(float rotationAmount)
     {
+        //Vertical rotation. rotation amount is given in 'HandleRotation'. has extra setting so the player can't infinitly look up and down.
         verticalRotation = Mathf.Clamp(verticalRotation - rotationAmount, -upDownLookrange, upDownLookrange);
         mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
     private void HandleRotation()
     {
+        //uses the mouse input for first person controll, can also be used by a controll stick.
         float mouseXRotation = playerInputHandler.RotationInput.x * mouseSensitivity;
         float mouseYRotation = playerInputHandler.RotationInput.y * mouseSensitivity;
 

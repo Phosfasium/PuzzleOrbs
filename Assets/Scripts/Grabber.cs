@@ -11,7 +11,7 @@ public class Grabber : MonoBehaviour
 
     void Update()
     {
-        //TODO. change the getmousebuttondown to new inputsystem (see pausegame script plus firstpersoncontroller)
+        //Get the mouse input with the current active camera.
         if(playerInputHandler.GrabFireOnce)
         {
             camera = Camera.allCameras[0];
@@ -22,17 +22,20 @@ public class Grabber : MonoBehaviour
 
                 if (hit.collider != null)
                 {
+                    //check if the item has the 'Drag' tag. must be placed on all orbs. 
                     if (!hit.collider.CompareTag("Drag"))
                     {
                         return;
                     }
 
+                    //set the SelectObject. move to 'if(selectedObject != null)
                     selectedObject = hit.collider.gameObject;
                     Cursor.visible = false;
                 }
             }
             else
             {
+                //release the ball. enable collision and gravity.
                 Vector3 position = new Vector3(playerInputHandler.TopDownMouseInput.x, playerInputHandler.TopDownMouseInput.y, camera.WorldToScreenPoint(selectedObject.transform.position).z);
                 Vector3 worldPosition = camera.ScreenToWorldPoint(position);
                 selectedObject.transform.position = new Vector3(worldPosition.x, BallHeight + 1f, worldPosition.z);
@@ -59,6 +62,7 @@ public class Grabber : MonoBehaviour
 
     private RaycastHit CastRay()
     {
+        //TODO find out how this exactly works. it gets the location of the mouse on screen.
         Debug.Log(camera != null);
         Vector3 screenMousePosFar = new Vector3(playerInputHandler.TopDownMouseInput.x, playerInputHandler.TopDownMouseInput.y, camera.farClipPlane);
         Vector3 screenMousePosNear = new Vector3(playerInputHandler.TopDownMouseInput.x, playerInputHandler.TopDownMouseInput.y, camera.nearClipPlane);

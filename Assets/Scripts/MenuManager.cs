@@ -28,6 +28,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        //set all the canvases to false and look for the player and its controller script
         _mainMenuCanvasGO.SetActive(false);
         _settingsMenuCanvasGO.SetActive(false);
         Player = GameObject.FindWithTag("Player");
@@ -38,6 +39,7 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //pause when the pause button is pressed.
         if (playerInputHandler.MenuFireOnce)
         {
             if (!isPaused)

@@ -38,11 +38,8 @@ public class Rule_Arrows : MonoBehaviour
     public float WestDetectionLength;
     private int WestHitCount;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-
-    // Update is called once per frame
+    //At the moment the direction is called in world space. meaning that the puzzle can't be rotated without this code breaking.
+    //TODO, make north of puzzle, norht of raycast. for all directions too.
     void Update()
     {
         //Debug.DrawRay(NorthOrigin.position, Vector3.forward * NorthDetectionLength, Color.red);
@@ -51,7 +48,7 @@ public class Rule_Arrows : MonoBehaviour
         //Debug.DrawRay(WestOrigin.position, Vector3.left * WestDetectionLength, Color.yellow);
         
 }
-
+    //launch each of the 4 checks.
     public void PressedCheck()
     {
         if (NorthOrbs != 0)
@@ -77,6 +74,7 @@ public class Rule_Arrows : MonoBehaviour
         //RaycastSouth();
         //RaycastWest();
 
+        //check if all 4 are correct and pass that information off to the 'puzzleChecker'
         if (NorthOrbs == NorthHitCount & EastOrbs == EastHitCount & SouthOrbs == SouthHitCount & WestOrbs == WestHitCount)
         {
             RuleCorrect = true;
@@ -88,14 +86,14 @@ public class Rule_Arrows : MonoBehaviour
             RuleCheckerGeneral.puzzleIsCorrect = false;
         }
 
-        Debug.Log("Norht = " + NorthHitCount);
-        Debug.Log("East = " + EastHitCount);
-        Debug.Log("South = " + SouthHitCount);
-        Debug.Log("West = " + WestHitCount);
+        //Debug.Log("Norht = " + NorthHitCount);
+        //Debug.Log("East = " + EastHitCount);
+        //Debug.Log("South = " + SouthHitCount);
+        //Debug.Log("West = " + WestHitCount);
         Debug.Log(RuleCorrect);
 
     }
-
+    #region Direction Checks
     public void RaycastNorth()
     {
         
@@ -140,5 +138,5 @@ public class Rule_Arrows : MonoBehaviour
 
     }
 
-
+    #endregion
 }
