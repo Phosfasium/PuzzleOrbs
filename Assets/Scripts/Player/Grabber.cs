@@ -15,7 +15,7 @@ public class Grabber : MonoBehaviour
         if(playerInputHandler.GrabFireOnce)
         {
             camera = Camera.allCameras[0];
-            Debug.Log(Camera.allCameras[0]);
+            //Debug.Log(Camera.allCameras[0]);
             if(selectedObject == null)
             {
                 RaycastHit hit = CastRay();
@@ -70,9 +70,9 @@ public class Grabber : MonoBehaviour
         Vector3 worldMousePosNear = camera.ScreenToWorldPoint(screenMousePosNear);
         RaycastHit hit;
         Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit);
-        Debug.Log(worldMousePosNear);
-        Debug.Log(worldMousePosFar);
-        Debug.Log(hit);
+        //Debug.Log(worldMousePosNear);
+        //Debug.Log(worldMousePosFar);
+        //Debug.Log(hit);
         
         return hit;
     }

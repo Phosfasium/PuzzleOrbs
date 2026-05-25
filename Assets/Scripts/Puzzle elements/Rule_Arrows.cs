@@ -90,7 +90,7 @@ public class Rule_Arrows : MonoBehaviour
         //Debug.Log("East = " + EastHitCount);
         //Debug.Log("South = " + SouthHitCount);
         //Debug.Log("West = " + WestHitCount);
-        Debug.Log(RuleCorrect);
+        //Debug.Log(RuleCorrect);
 
     }
     #region Direction Checks

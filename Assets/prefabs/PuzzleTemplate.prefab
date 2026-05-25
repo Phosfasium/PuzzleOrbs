@@ -1026,6 +1026,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleChecker
   RulesToCheck: []
+  BoxesParent: {fileID: 7324111655540726682}
+  OrbParent: {fileID: 5213904066728033825}
+  BoxesToCheck: []
+  OrbAmountToCheck: 0
   materialStandard: {fileID: 2100000, guid: d89cabc0578427040ab98c9b2be2fdb0, type: 2}
   materialCorrect: {fileID: 2100000, guid: 72beda073f7935b43847e90ce41caa7e, type: 2}
   materialIncorrect: {fileID: 2100000, guid: ca38b71ef7aba4e4dbae03ce4a473e44, type: 2}
