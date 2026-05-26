@@ -22,6 +22,7 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
     #region start the puzzle
     public void Interact(Camera PlayerCamera, FirstPersonController FirstPersonController)
     {
+        //switch from first person to puzzle perspective with point and click controlls.
         switchCam(PlayerCamera, FirstPersonController);
         FirstPersonController.PlayerControllsEnabled = false;
         FirstPersonController.PlayerControllsPause = false;
@@ -37,12 +38,14 @@ public class StartPuzzleTrigger : MonoBehaviour,IInteractable
     {
         //PlayerCamera.enabled = false;
         //puzzleCam.enabled = true;
+        //switch to the right camera
         PlayerCamera.enabled = !PlayerCamera.enabled;
         puzzleCam.enabled = !puzzleCam.enabled;
     }
     #endregion
     public void ExitPuzzle(Camera PlayerCamera, FirstPersonController FirstPersonController)
     {
+        //exit the puzzle and switch back to first person mode.
         FirstPersonController.PlayerControllsEnabled = true;
         FirstPersonController.PlayerControllsPause = true;
         GetComponent<BoxCollider>().enabled = true;

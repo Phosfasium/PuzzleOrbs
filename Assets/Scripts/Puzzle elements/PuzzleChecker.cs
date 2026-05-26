@@ -6,6 +6,7 @@ public class PuzzleChecker : MonoBehaviour
 {
     //public List<GameObject> RulesToCheck;
     private bool AllCorrect;
+    [Header ("Puzzle elements")]
     public GameObject BoxesParent;
     public GameObject OrbParent;
     [SerializeField]
@@ -14,7 +15,7 @@ public class PuzzleChecker : MonoBehaviour
     private int OrbAmountToCheck;
     private int orbAmount;
     private bool AllOrbs;
-
+    [Header ("Puzzle complete items")]
     [SerializeField] private Material materialStandard;
     [SerializeField] private Material materialCorrect;
     [SerializeField] private Material materialIncorrect;

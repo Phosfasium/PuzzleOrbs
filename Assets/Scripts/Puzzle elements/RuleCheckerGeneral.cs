@@ -7,6 +7,7 @@ public class RuleCheckerGeneral : MonoBehaviour
     public bool puzzleIsCorrect;
     [SerializeField] private UnityEvent RuleToCheck;
 
+    //call all the rules in the event 'rules to check' and pass it through to the puzzle checker
     public void CallFunction()
     {
         RuleToCheck.Invoke();
